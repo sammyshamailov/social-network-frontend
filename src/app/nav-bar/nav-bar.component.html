@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <div>
+            <a mat-button routerLink='/home' routerLinkActive='active-route-class'
+                [routerLinkActiveOptions]='{exact: true}'>  Home | translate  </a>
+            <a mat-button routerLink='/login' routerLinkActive='active-route-class'
+                [routerLinkActiveOptions]='{exact: true}'>  Login | translate  </a>
+            <a mat-button routerLink='/register' routerLinkActive='active-route-class'
+                [routerLinkActiveOptions]='{exact: true}'>  Register | translate  </a>
+            <a mat-button (click)='logout()'>  Logout | translate  </a>
+        </div>
+        <div>
+            <app-lang-choice></app-lang-choice>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

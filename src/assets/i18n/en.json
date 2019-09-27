@@ -1,0 +1,8 @@
+{
+    "Menu": {
+        "Home": "Home",
+        "Login": "Login",
+        "Logout": "Logout",
+        "Register": "Register"
+    }
+}
