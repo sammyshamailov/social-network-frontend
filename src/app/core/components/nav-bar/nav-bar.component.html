@@ -1,6 +1,6 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" class="example">
     <mat-toolbar-row class="div">
-        <div>
+        <div class="div">
             <a mat-button routerLink='/home' routerLinkActive='active-route-class'
                 [routerLinkActiveOptions]='{exact: true}'> {{ 'Menu.Home' | translate }} </a>
             <a mat-button routerLink='/login' routerLinkActive='active-route-class'
@@ -10,7 +10,7 @@
             <a mat-button (click)='logout()'> {{ 'Menu.Logout' | translate }} </a>
         </div>
         <!-- <span class="example-spacer"></span> -->
-        <div>
+        <div class="div">
             <app-lang-choice></app-lang-choice>
         </div>
     </mat-toolbar-row>
