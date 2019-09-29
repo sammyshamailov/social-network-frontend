@@ -8,10 +8,7 @@
             [routerLinkActiveOptions]='{exact: true}'> {{ 'Menu.Register' | translate }} </a>
         <a mat-button (click)='logout()'> {{ 'Menu.Logout' | translate }} </a>
     </div>
-    <!-- <span class="example-spacer"></span> -->
-    <div  fxLayout="row wrap" fxFlex="20">
-        <app-lang-choice></app-lang-choice>
-    </div>
+    <app-lang-choice></app-lang-choice>
 </mat-toolbar>
 
 <!-- <div style="height: 100vh;">

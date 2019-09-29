@@ -1,4 +1,4 @@
-<div>
+<div fxLayout="row wrap" fxFlex>
     <a #langSelect (click)="translate.use(langSelect.title)" *ngFor="let lang of translate.getLangs()" [title]="lang"> |
         {{ lang }} | </a>
 </div>
