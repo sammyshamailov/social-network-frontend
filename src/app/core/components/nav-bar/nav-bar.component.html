@@ -1,11 +1,11 @@
 <mat-toolbar color="primary" fxLayout="row wrap" fxLayoutAlign="space-between center">
     <div fxLayout="row wrap" fxFlex="80">
         <a mat-button routerLink='/home' routerLinkActive='active-route-class'
-            [routerLinkActiveOptions]='{exact: true}'> {{ 'Menu.Home' | translate }} </a>
+            [routerLinkActiveOptions]='{exact: true}'> {{ 'Menu.Home' | translate }} </a> |
         <a mat-button routerLink='/login' routerLinkActive='active-route-class'
-            [routerLinkActiveOptions]='{exact: true}'> {{ 'Menu.Login' | translate }} </a>
+            [routerLinkActiveOptions]='{exact: true}'> {{ 'Menu.Login' | translate }} </a> |
         <a mat-button routerLink='/register' routerLinkActive='active-route-class'
-            [routerLinkActiveOptions]='{exact: true}'> {{ 'Menu.Register' | translate }} </a>
+            [routerLinkActiveOptions]='{exact: true}'> {{ 'Menu.Register' | translate }} </a> |
         <a mat-button (click)='logout()'> {{ 'Menu.Logout' | translate }} </a>
     </div>
     <app-lang-choice></app-lang-choice>

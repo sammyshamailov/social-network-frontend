@@ -1,1 +1,15 @@
-<p>signup-page works!</p>
+<section>
+    <form fxLayout="column wrap" fxLayoutAlign="center center">
+        <mat-form-field>
+            <input type="email" matInput placeholder="Your email">
+        </mat-form-field>
+        <mat-form-field>
+            <input type="text" matInput placeholder="Your username">
+        </mat-form-field>
+        <mat-form-field>
+            <input type="password" matInput placeholder="Your password">
+        </mat-form-field>
+        <button type="button" mat-raised-button (click)="fileInput.click()">Choose Profile Picture</button>
+        <input hidden (change)="onFileSelected()" #fileInput type="file" id="file">
+    </form>
+</section>
