@@ -1,15 +1,15 @@
 <section>
-    <form fxLayout="column wrap" fxLayoutAlign="center center">
+    <form fxLayout="column wrap" fxLayoutAlign="center center" #registerForm="ngForm">
         <mat-form-field>
-            <input type="email" matInput placeholder="Your email">
+            <input type="email" matInput placeholder="Your email" ngModel name="email">
         </mat-form-field>
         <mat-form-field>
-            <input type="text" matInput placeholder="Your username">
+            <input type="text" matInput placeholder="Your username" ngModel name="username">
         </mat-form-field>
         <mat-form-field>
-            <input type="password" matInput placeholder="Your password">
+            <input type="password" matInput placeholder="Your password" ngModel name="password">
         </mat-form-field>
-        <button type="button" mat-raised-button (click)="fileInput.click()">Choose Profile Picture</button>
-        <input hidden (change)="onFileSelected()" #fileInput type="file" id="file">
+        <button color="primary" type="button" mat-raised-button (click)="fileInput.click()">Choose Profile Picture</button>
+        <input hidden mdInput (change)="onFileSelected()" #fileInput type="file" id="file">
     </form>
 </section>
