@@ -1,13 +1,39 @@
 <section>
     <form fxLayout="column wrap" fxLayoutAlign="center center" #registerForm="ngForm">
         <mat-form-field>
-            <input type="email" matInput placeholder="Your email" ngModel name="email">
+            <input 
+            type="email" 
+            matInput 
+            placeholder="{{ ('Signup.Email' | translate) }}" 
+            ngModel 
+            name="email"
+            email
+            required>
+            
         </mat-form-field>
-        <mat-form-field>
-            <input type="text" matInput placeholder="Your username" ngModel name="username">
+        <mat-form-field hintLabel="Min 5 chars long.">
+            <input 
+            type="text" 
+            matInput 
+            placeholder="{{ ('Signup.Username' | translate) }}" 
+            ngModel 
+            name="username"
+            required
+            minlength="5"
+            #unInput="ngModel">
+            <mat-hint align="end"> {{ unInput.value?.length }} / 5</mat-hint>
         </mat-form-field>
-        <mat-form-field>
-            <input type="password" matInput placeholder="Your password" ngModel name="password">
+        <mat-form-field hintLabel="Min 8 chars long including 1 capital & 1 number.">
+            <input 
+            type="password" 
+            matInput 
+            placeholder="{{ ('Signup.Password' | translate) }}" 
+            ngModel 
+            name="password"
+            required
+            minlength="8"
+            #pwInput="ngModel">
+            <mat-hint align="end"> {{ pwInput.value?.length }} / 8</mat-hint>
         </mat-form-field>
         <button color="primary" type="button" mat-raised-button (click)="fileInput.click()">Choose Profile Picture</button>
         <input hidden mdInput (change)="onFileSelected()" #fileInput type="file" id="file">

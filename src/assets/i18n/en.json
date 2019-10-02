@@ -4,5 +4,10 @@
         "Login": "Login",
         "Logout": "Logout",
         "Register": "Register"
+    },
+    "Signup": {
+        "Email": "Your Email",
+        "Username": "Your Username",
+        "Password": "Your Password"
     }
 }

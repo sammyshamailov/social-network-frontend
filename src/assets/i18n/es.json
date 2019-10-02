@@ -4,5 +4,10 @@
         "Login": "Iniciar Sesión",
         "Logout": "Cerrar Sesión",
         "Register": "Regístrate"
+    },
+    "Signup": {
+        "Email": "Tu correo electrónico",
+        "Username": "Su nombre de usuario",
+        "Password": "Tu contraseña"
     }
 }

@@ -33,7 +33,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   ],
   exports: [
     NavBarComponent,
-    RouterModule
+    RouterModule,
+    TranslateModule
   ]
 })
 export class CoreModule {
