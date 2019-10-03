@@ -18,7 +18,7 @@
 </mat-toolbar>
 
 <mat-sidenav-container fxFlexFill>
-    <mat-sidenav #sidenav >
+    <mat-sidenav #sidenav>
         <div fxLayout="column">
             <a (click)="sidenav.toggle()" mat-button routerLink='/home' routerLinkActive='active-route-class'
                 [routerLinkActiveOptions]='{exact: true}'> {{ 'Menu.Home' | translate }} </a>
@@ -29,6 +29,6 @@
             <a (click)="sidenav.toggle()" mat-button (click)='logout()'> {{ 'Menu.Logout' | translate }} </a>
         </div>
     </mat-sidenav>
-    <mat-sidenav-content ><router-outlet></router-outlet></mat-sidenav-content>
+    <mat-sidenav-content><router-outlet></router-outlet></mat-sidenav-content>
 </mat-sidenav-container>
 </div>

@@ -11,6 +11,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+
 
 
 @NgModule({
@@ -27,6 +29,7 @@ import { FormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatInputModule,
     MatTooltipModule,
+    MatCardModule,
     FlexLayoutModule,
     FormsModule
   ],
@@ -42,6 +45,7 @@ import { FormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatInputModule,
     MatTooltipModule,
+    MatCardModule,
     FlexLayoutModule,
     FormsModule
   ]

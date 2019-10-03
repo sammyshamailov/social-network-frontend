@@ -7,13 +7,15 @@ import { SigninPageComponent } from './components/signin-page/signin-page.compon
 import { SignupPageComponent } from './components/signup-page/signup-page.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
+import { TweetsComponent } from './components/tweets/tweets.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupPageComponent,
     SigninPageComponent,
-    HomePageComponent
+    HomePageComponent,
+    TweetsComponent
   ],
   imports: [
     BrowserModule,

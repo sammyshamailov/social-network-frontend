@@ -5,7 +5,7 @@
         "Logout": "Cerrar Sesión",
         "Register": "Regístrate"
     },
-    "Signup": {
+    "Form": {
         "Email": "Tu correo electrónico",
         "EmailRequiredError": "correo electronico es requerido",
         "EmailPatternError": "Patrón de correo electrónico: ejemplo@ejemplo.dominio",
@@ -13,6 +13,14 @@
         "UsernameHint": "Mínimo 5 caracteres",
         "Password": "Tu contraseña",
         "ProfilePhoto": "Elegir foto de perfil",
-        "PasswordHint": "Mínimo 8 caracteres de largo incluyendo 1 letra mayúscula y 1 número."
+        "PasswordHint": "Mínimo 8 caracteres de largo incluyendo 1 letra mayúscula y 1 número.",
+        "PasswordRequiredError": "Se requiere contraseña.",
+        "PasswordPatternError": "Mínimo 8 caracteres de largo incluyendo 1 letra mayúscula y 1 número.",
+        "Register": "Regístrate",
+        "Login": "Iniciar Sesión"
+    },
+    "Headers": {
+        "Register": "Registrarse en el clon de Twitter",
+        "Login": "Iniciar Sesión"
     }
 }

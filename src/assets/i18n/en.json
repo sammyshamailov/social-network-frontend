@@ -5,14 +5,22 @@
         "Logout": "Logout",
         "Register": "Register"
     },
-    "Signup": {
+    "Form": {
         "Email": "Your Email",
-        "EmailRequiredError": "Email is required",
+        "EmailRequiredError": "Email is required.",
         "EmailPatternError": "Email pattern: example@example.domain",
         "Username": "Your Username",
-        "UsernameHint": "Min 5 chars long",
+        "UsernameHint": "Min 5 chars long.",
         "Password": "Your Password",
         "ProfilePhoto": "Choose Profile Picture",
-        "PasswordHint": "Min 8 chars long including 1 capital letter & 1 number."
+        "PasswordHint": "Min 8 chars long including 1 capital letter & 1 number.",
+        "PasswordRequiredError": "Password is required.",
+        "PasswordPatternError": "Min 8 chars long including 1 capital letter & 1 number.",
+        "Register": "Register",
+        "Login": "Login"
+    },
+    "Headers": {
+        "Register": "Register to Twitter Clone",
+        "Login": "Login"
     }
 }
