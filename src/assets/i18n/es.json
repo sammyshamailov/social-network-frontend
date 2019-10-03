@@ -7,7 +7,12 @@
     },
     "Signup": {
         "Email": "Tu correo electrónico",
+        "EmailRequiredError": "correo electronico es requerido",
+        "EmailPatternError": "Patrón de correo electrónico: ejemplo@ejemplo.dominio",
         "Username": "Su nombre de usuario",
-        "Password": "Tu contraseña"
+        "UsernameHint": "Mínimo 5 caracteres",
+        "Password": "Tu contraseña",
+        "ProfilePhoto": "Elegir foto de perfil",
+        "PasswordHint": "Mínimo 8 caracteres de largo incluyendo 1 letra mayúscula y 1 número."
     }
 }

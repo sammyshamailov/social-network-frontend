@@ -7,7 +7,12 @@
     },
     "Signup": {
         "Email": "Your Email",
+        "EmailRequiredError": "Email is required",
+        "EmailPatternError": "Email pattern: example@example.domain",
         "Username": "Your Username",
-        "Password": "Your Password"
+        "UsernameHint": "Min 5 chars long",
+        "Password": "Your Password",
+        "ProfilePhoto": "Choose Profile Picture",
+        "PasswordHint": "Min 8 chars long including 1 capital letter & 1 number."
     }
 }

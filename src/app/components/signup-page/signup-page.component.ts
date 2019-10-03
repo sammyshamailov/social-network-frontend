@@ -9,8 +9,8 @@ export class SignupPageComponent implements OnInit {
 
   constructor() { }
 
-  onFileSelected() {
-
+  onFileSelected(event) {
+    console.log(event);
   }
 
   ngOnInit() {
