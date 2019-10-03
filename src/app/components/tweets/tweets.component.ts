@@ -10,35 +10,35 @@ export class TweetsComponent implements OnInit {
   tweetArray = [
     {
       name: 'John Doe',
-      date: '03/10/20190',
+      date: '03/10/2019',
       content: 'thsfsdfsdfsdfsdfsfaofi aoknf oanoajdn asodn asodn oasdn osaidn osaind oasind oasnd asiodn asoidn asoidn'
     },
     {
       name: 'John Doe',
-      date: '03/10/20190',
+      date: '03/10/2019',
       content: 'thsfsdfsdfsdfsdfsfaofi aoknf oanoajdn asodn asodn oasdn osaidn osaind oasind oasnd asiodn asoidn asoidn'
     },
     {
       name: 'John Doe',
-      date: '03/10/20190',
+      date: '03/10/2019',
       content: 'thsfsdfsdfsdfsdfsfaofi aoknf oanoajdn asodn asodn oasdn osaidn osaind oasind oasnd asiodn asoidn asoidn'
     }
     ,
     {
       name: 'John Doe',
-      date: '03/10/20190',
+      date: '03/10/2019',
       content: 'thsfsdfsdfsdfsdfsfaofi aoknf oanoajdn asodn asodn oasdn osaidn osaind oasind oasnd asiodn asoidn asoidn'
     }
     ,
     {
       name: 'John Doe',
-      date: '03/10/20190',
+      date: '03/10/2019',
       content: 'thsfsdfsdfsdfsdfsfaofi aoknf oanoajdn asodn asodn oasdn osaidn osaind oasind oasnd asiodn asoidn asoidn'
     }
     ,
     {
       name: 'John Doe',
-      date: '03/10/20190',
+      date: '03/10/2019',
       content: 'thsfsdfsdfsdfsdfsfaofi aoknf oanoajdn asodn asodn oasdn osaidn osaind oasind oasnd asiodn asoidn asoidn'
     }
   ];

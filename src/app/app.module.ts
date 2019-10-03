@@ -8,6 +8,7 @@ import { SignupPageComponent } from './components/signup-page/signup-page.compon
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { TweetsComponent } from './components/tweets/tweets.component';
+import { TextBoxComponent } from './components/text-box/text-box.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { TweetsComponent } from './components/tweets/tweets.component';
     SignupPageComponent,
     SigninPageComponent,
     HomePageComponent,
-    TweetsComponent
+    TweetsComponent,
+    TextBoxComponent
   ],
   imports: [
     BrowserModule,
