@@ -1,0 +1,13 @@
+<div fxLayout="column" fxLayoutAlign="space-between center">
+    <mat-card class="text-box-container">
+        <mat-card-content>
+            <mat-form-field appearance="none" class="text-input">
+                <textarea matInput [(ngModel)]="tweetContent" name="password" #tweetText="ngModel"></textarea>
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions align="end">
+            <mat-hint> {{ tweetText.value?.length }} / 240 </mat-hint>
+            <button (click)="postTweet()" [disabled]="tweetText.value?.length > 240 || tweetText.value?.length === 0" mat-raised-button>Post</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
