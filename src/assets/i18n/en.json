@@ -3,7 +3,8 @@
         "Home": "Home",
         "Login": "Login",
         "Logout": "Logout",
-        "Register": "Register"
+        "Register": "Register",
+        "Profile": "Profile"
     },
     "Form": {
         "Email": "Your Email",
@@ -17,7 +18,8 @@
         "PasswordRequiredError": "Password is required.",
         "PasswordPatternError": "Min 8 chars long including 1 capital letter & 1 number.",
         "Register": "Register",
-        "Login": "Login"
+        "Login": "Login",
+        "Post": "Post"
     },
     "Headers": {
         "Register": "Register to Twitter Clone",

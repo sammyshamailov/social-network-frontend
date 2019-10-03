@@ -3,7 +3,8 @@
         "Home": "Página de Inicio",
         "Login": "Iniciar Sesión",
         "Logout": "Cerrar Sesión",
-        "Register": "Regístrate"
+        "Register": "Regístrate",
+        "Profile": "Perfil"
     },
     "Form": {
         "Email": "Tu correo electrónico",
@@ -17,7 +18,8 @@
         "PasswordRequiredError": "Se requiere contraseña.",
         "PasswordPatternError": "Mínimo 8 caracteres de largo incluyendo 1 letra mayúscula y 1 número.",
         "Register": "Regístrate",
-        "Login": "Iniciar Sesión"
+        "Login": "Iniciar Sesión",
+        "Post": "Enviar"
     },
     "Headers": {
         "Register": "Registrarse en el clon de Twitter",

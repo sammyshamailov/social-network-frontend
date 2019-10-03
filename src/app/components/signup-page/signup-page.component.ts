@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-signup-page',
   templateUrl: './signup-page.component.html',
@@ -7,7 +8,8 @@ import { NgForm } from '@angular/forms';
 })
 export class SignupPageComponent implements OnInit {
   profilePhoto = new FileReader();
-  constructor() { }
+
+  constructor(private router: Router) { }
 
   onFileSelected(profilePhoto: File) {
     this.profilePhoto.readAsArrayBuffer(profilePhoto);
@@ -16,6 +18,7 @@ export class SignupPageComponent implements OnInit {
   onSubmit(form: NgForm) {
     // TODO ADD SERVICE CALL
     console.log(form);
+    this.router.navigate(['/home']);
   }
 
   ngOnInit() {

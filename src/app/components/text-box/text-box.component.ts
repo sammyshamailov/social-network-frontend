@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./text-box.component.css']
 })
 export class TextBoxComponent implements OnInit {
-  tweetContent: string;
+  tweetContent = '';
 
   constructor() { }
 

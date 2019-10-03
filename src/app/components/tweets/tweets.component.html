@@ -1,25 +1,26 @@
 <div fxLayout="column" fxLayoutAlign="space-between center">
-<mat-card class="example-card" *ngFor="let tweet of tweetArray">
-    <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>{{ tweet.name }}</mat-card-title>
-        <mat-card-subtitle>{{ tweet.date }}</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-        <p>
-            {{ tweet.content }}
-        </p>
-    </mat-card-content>
-    <mat-card-actions fxLayout="row" fxLayoutAlign="end">
-        <button mat-icon-button>
-            <mat-icon>delete</mat-icon>
-        </button>
-        <button mat-icon-button>
-            <mat-icon>reply</mat-icon>
-        </button>
-        <button mat-icon-button>
-            <mat-icon>star</mat-icon>
-        </button>
-    </mat-card-actions>
-</mat-card>
+    <mat-card class="example-card" *ngFor="let tweet of tweetArray">
+        <mat-card-header>
+            <div (click)="goToProfilePage()" mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{ tweet.name }}</mat-card-title>
+            <mat-card-subtitle>{{ tweet.date }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <p>
+                {{ tweet.content }}
+            </p>
+        </mat-card-content>
+        <mat-card-actions fxLayout="row" fxLayoutAlign="end">
+            <button color="warn" (click)="deleteTweet(tweet)" mat-icon-button>
+                <mat-icon>delete</mat-icon>
+            </button>
+            <button color="primary" (click)="replyTweet(tweet)" mat-icon-button>
+                <mat-icon>reply</mat-icon>
+            </button>
+            <button mat-icon-button> {{ tweet.stars }} </button>
+            <button class="star-action" (click)="starTweet(tweet)" mat-icon-button>
+                <mat-icon>star_border</mat-icon>
+            </button>
+        </mat-card-actions>
+    </mat-card>
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signin-page',
@@ -8,10 +9,11 @@ import { NgForm } from '@angular/forms';
 })
 export class SigninPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   onSubmit(form: NgForm) {
     // TODO ADD SERVICE CALL
+    this.router.navigate(['/home']);
   }
 
   ngOnInit() {
