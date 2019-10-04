@@ -1,0 +1,10 @@
+<button color="warn" (click)="deleteTweet(tweet)" mat-icon-button>
+    <mat-icon>delete</mat-icon>
+</button>
+<button color="primary" (click)="replyTweet(tweet)" mat-icon-button>
+    <mat-icon>reply</mat-icon>
+</button>
+<button mat-icon-button> {{ tweet.stars }} </button>
+<button class="star-action" (click)="starTweet(tweet)" mat-icon-button>
+    <mat-icon>star_border</mat-icon>
+</button>
