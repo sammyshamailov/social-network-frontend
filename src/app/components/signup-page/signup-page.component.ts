@@ -7,12 +7,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup-page.component.css']
 })
 export class SignupPageComponent implements OnInit {
-  profilePhoto = new FileReader();
+  profilePhoto: File;
 
   constructor(private router: Router) { }
 
   onFileSelected(profilePhoto: File) {
-    this.profilePhoto.readAsArrayBuffer(profilePhoto);
+    this.profilePhoto = profilePhoto;
   }
 
   onSubmit(form: NgForm) {

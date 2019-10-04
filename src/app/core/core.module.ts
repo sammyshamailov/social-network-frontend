@@ -1,13 +1,15 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { SharedModule } from '../shared/shared.module';
 import { LangChoiceComponent } from './components/lang-choice/lang-choice.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { CoreRoutingModule } from './core-routing.module';
-import { RouterModule } from '@angular/router';
+import { TokenInterceptor } from './interceptors/token';
+import { AuthService } from './services/auth.service';
+import { TweetService } from './services/tweet.service';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -21,8 +23,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   ],
   imports: [
     SharedModule,
-    CoreRoutingModule,
     HttpClientModule,
+    RouterModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -33,8 +35,12 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   ],
   exports: [
     NavBarComponent,
-    RouterModule,
     TranslateModule
+  ],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    TweetService,
+    AuthService
   ]
 })
 export class CoreModule {

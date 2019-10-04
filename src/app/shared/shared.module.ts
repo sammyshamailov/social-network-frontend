@@ -12,11 +12,19 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TweetsComponent } from './components/tweets/tweets.component';
+import { TranslateModule } from '@ngx-translate/core';
+import { TweetItemComponent } from './components/tweet-item/tweet-item.component';
+import { TweetActionsComponent } from './components/tweet-actions/tweet-actions.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    TweetsComponent,
+    TweetItemComponent,
+    TweetActionsComponent
+  ],
   imports: [
     CommonModule,
     BrowserAnimationsModule,
@@ -31,7 +39,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatTooltipModule,
     MatCardModule,
     FlexLayoutModule,
-    FormsModule
+    FormsModule,
+    TranslateModule
   ],
   exports: [
     CommonModule,
@@ -47,7 +56,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatTooltipModule,
     MatCardModule,
     FlexLayoutModule,
-    FormsModule
+    FormsModule,
+    TweetsComponent
   ]
 })
 export class SharedModule { }
