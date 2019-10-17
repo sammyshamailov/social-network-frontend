@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
+import { TweetService } from '../../services/tweet.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -8,10 +10,26 @@ import { Router } from '@angular/router';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  get isAuthenticated(): boolean {
+    return this.authService.isAuthenticated();
+  }
+
+  get loggedUsername(): string {
+    return this.authService.getLoggedUsername();
+  }
+
+  setloggedUserId(): void {
+    this.tweetService.setCurrentId(this.authService.getLoggedUserId());
+  }
+
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private tweetService: TweetService
+    ) { }
 
   logout() {
-    console.log('logout');
+    this.authService.logout();
     this.router.navigate(['/home']);
   }
 

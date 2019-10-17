@@ -1,0 +1,24 @@
+<header>
+    <h1>{{ ('Headers.Login' | translate) }}</h1>
+</header>
+<section>
+    <form fxLayout="column wrap" fxLayoutAlign="center center" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+        <mat-form-field>
+            <input type="email" matInput placeholder="{{ ('Form.Email' | translate) }}" ngModel name="email"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required #emailInput="ngModel">
+            <mat-error *ngIf="emailInput.hasError('required')">{{ ('Form.EmailRequiredError' | translate) }}
+            </mat-error>
+            <mat-error *ngIf="emailInput.hasError('pattern')">{{ ('Form.EmailPatternError' | translate) }}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input type="password" matInput placeholder="{{ ('Form.Password' | translate) }}" ngModel name="password"
+                required minlength="8" #pwInput="ngModel" matTooltip="{{ ('Form.PasswordHint' | translate) }}"
+                matTooltipPosition="below">
+            <mat-hint align="end"> {{ pwInput.value?.length }} / 8</mat-hint>
+            <mat-error *ngIf="pwInput.hasError('required')">{{ ('Form.PasswordRequiredError' | translate) }}
+            </mat-error>
+        </mat-form-field>
+        <button color="primary" type="submit" [disabled]="loginForm.invalid"
+            mat-raised-button>{{ 'Form.Login' | translate}}</button>
+    </form>
+</section>

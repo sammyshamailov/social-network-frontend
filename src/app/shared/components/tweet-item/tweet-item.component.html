@@ -11,7 +11,13 @@
             </p>
         </mat-card-content>
         <mat-card-actions fxLayout="row" fxLayoutAlign="end">
-            <app-tweet-actions [tweet]="tweet"></app-tweet-actions>
+            <app-tweet-actions 
+            [tweet]="tweet"
+            (postTweet)="replyTweet()"
+            (deleteTweetId)="deleteTweet($event)"
+            (starTweetId)="starTweet($event)"
+            >
+        </app-tweet-actions>
         </mat-card-actions>
     </mat-card>
 </div>

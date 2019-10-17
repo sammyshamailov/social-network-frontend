@@ -7,6 +7,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SharedModule } from '../shared/shared.module';
 import { LangChoiceComponent } from './components/lang-choice/lang-choice.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { AuthGuard } from './guards/auth.guard';
 import { TokenInterceptor } from './interceptors/token';
 import { AuthService } from './services/auth.service';
 import { TweetService } from './services/tweet.service';
@@ -40,7 +41,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     TweetService,
-    AuthService
+    AuthService,
+    AuthGuard
   ]
 })
 export class CoreModule {

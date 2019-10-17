@@ -1,1 +1,2 @@
-<app-tweet-item *ngFor="let tweet of tweetArray" [tweet]="tweet"></app-tweet-item>
+<app-tweet-item *ngFor="let tweet of tweetArray" [tweet]="tweet" (postTweet)="replyTweet()"
+    (deleteTweetId)="deleteTweet($event)" (starTweetId)="starTweet($event)"></app-tweet-item>

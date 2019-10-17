@@ -1,4 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+
+import { AuthService } from '../../../core/services/auth.service';
+import { Tweet } from '../../models/tweet';
 
 @Component({
   selector: 'app-tweet-actions',
@@ -6,23 +9,31 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./tweet-actions.component.css']
 })
 export class TweetActionsComponent implements OnInit {
-  @Input() tweet: object;
+  @Input() tweet: Tweet;
 
-  constructor() { }
+  @Output() deleteTweetId = new EventEmitter<string>();
+  @Output() starTweetId = new EventEmitter<string>();
+  @Output() postTweet = new EventEmitter<string>();
 
-  deleteTweet(tweet: object) {
-    // TODO call api service
-    console.log(tweet);
+  get isAuthenticated(): boolean {
+    return this.authService.isAuthenticated();
+  }
+  get isLoggedUser(): boolean {
+    return this.authService.getLoggedUsername() === this.tweet.username;
   }
 
-  replyTweet(tweet: object) {
-    // TODO call api service
-    console.log(tweet);
+  constructor(private authService: AuthService) { }
+
+  deleteTweet() {
+    this.deleteTweetId.emit(this.tweet._id);
   }
 
-  starTweet(tweet: object) {
-    // TODO call api service
-    console.log(tweet);
+  replyTweet() {
+    this.postTweet.emit('');
+  }
+
+  starTweet() {
+    this.starTweetId.emit(this.tweet._id);
   }
 
   ngOnInit() {

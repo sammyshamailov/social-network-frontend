@@ -7,14 +7,22 @@
         </div>
         <div fxLayout="row wrap" fxFlex="80" fxShow="true" fxHide.lt-md="true">
             <a mat-button routerLink='/home' routerLinkActive='active-route-class'
-                [routerLinkActiveOptions]='{exact: true}'> {{ 'Menu.Home' | translate }} </a> |
-            <a mat-button routerLink='/login' routerLinkActive='active-route-class'
-                [routerLinkActiveOptions]='{exact: true}'> {{ 'Menu.Login' | translate }} </a> |
-            <a mat-button routerLink='/register' routerLinkActive='active-route-class'
-                [routerLinkActiveOptions]='{exact: true}'> {{ 'Menu.Register' | translate }} </a> |
-            <a mat-button routerLink='/profile' routerLinkActive='active-route-class'
-                [routerLinkActiveOptions]='{exact: true}'> {{ 'Menu.Profile' | translate }} </a> |
-            <a mat-button (click)='logout()'> {{ 'Menu.Logout' | translate }} </a>
+                [routerLinkActiveOptions]='{exact: true}'> {{ 'Menu.Home' | translate }} </a>
+            <div *ngIf='!isAuthenticated'>
+                |<a mat-button routerLink='/login' routerLinkActive='active-route-class'
+                    [routerLinkActiveOptions]='{exact: true}'> {{ 'Menu.Login' | translate }} </a>
+            </div>
+            <div *ngIf='!isAuthenticated'>
+                |<a mat-button routerLink='/register' routerLinkActive='active-route-class'
+                    [routerLinkActiveOptions]='{exact: true}'> {{ 'Menu.Register' | translate }} </a>
+            </div>
+            <div *ngIf='isAuthenticated'>
+                |<a mat-button (click)='setloggedUserId()' routerLink='/profile/{{ loggedUsername }}' routerLinkActive='active-route-class'
+                    [routerLinkActiveOptions]='{exact: true}'> {{ 'Menu.Profile' | translate }} </a>
+            </div>
+            <div *ngIf='isAuthenticated'>
+                |<a mat-button (click)='logout()'> {{ 'Menu.Logout' | translate }} </a>
+            </div>
         </div>
         <app-lang-choice></app-lang-choice>
     </mat-toolbar>
@@ -24,13 +32,17 @@
             <div fxLayout="column">
                 <a (click)="sidenav.toggle()" mat-button routerLink='/home' routerLinkActive='active-route-class'
                     [routerLinkActiveOptions]='{exact: true}'> {{ 'Menu.Home' | translate }} </a>
-                <a (click)="sidenav.toggle()" mat-button routerLink='/login' routerLinkActive='active-route-class'
-                    [routerLinkActiveOptions]='{exact: true}'> {{ 'Menu.Login' | translate }} </a>
-                <a (click)="sidenav.toggle()" mat-button routerLink='/register' routerLinkActive='active-route-class'
-                    [routerLinkActiveOptions]='{exact: true}'> {{ 'Menu.Register' | translate }} </a>
-                <a (click)="sidenav.toggle()" mat-button routerLink='/profile' routerLinkActive='active-route-class'
-                    [routerLinkActiveOptions]='{exact: true}'> {{ 'Menu.Profile' | translate }} </a>
-                <a (click)="sidenav.toggle()" mat-button (click)='logout()'> {{ 'Menu.Logout' | translate }} </a>
+                <a *ngIf='!isAuthenticated' (click)="sidenav.toggle()" mat-button routerLink='/login'
+                    routerLinkActive='active-route-class' [routerLinkActiveOptions]='{exact: true}'>
+                    {{ 'Menu.Login' | translate }} </a>
+                <a *ngIf='!isAuthenticated' (click)="sidenav.toggle()" mat-button routerLink='/register'
+                    routerLinkActive='active-route-class' [routerLinkActiveOptions]='{exact: true}'>
+                    {{ 'Menu.Register' | translate }} </a>
+                <a *ngIf='isAuthenticated' (click)="setloggedUserId(); sidenav.toggle();" mat-button routerLink='/profile/{{ loggedUsername }}'
+                    routerLinkActive='active-route-class' [routerLinkActiveOptions]='{exact: true}'>
+                    {{ 'Menu.Profile' | translate }} </a>
+                <a *ngIf='isAuthenticated' (click)="sidenav.toggle()" mat-button (click)='logout()'>
+                    {{ 'Menu.Logout' | translate }} </a>
             </div>
         </mat-sidenav>
         <mat-sidenav-content>

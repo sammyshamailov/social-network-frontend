@@ -10,11 +10,17 @@ export class LangChoiceComponent implements OnInit {
 
   constructor(public translate: TranslateService) {
     translate.addLangs(['en', 'es']);
-    translate.setDefaultLang('en');
+    translate.use(localStorage.getItem('lang') ? localStorage.getItem('lang') : 'en');
+  }
 
-    const browserLang = translate.getBrowserLang();
-    translate.use(browserLang.match(/en|es/) ? browserLang : 'en');
-   }
+  getLangs(): string[] {
+    return this.translate.getLangs();
+  }
+
+  changeLang(langSelected: string): void {
+    localStorage.setItem('lang', langSelected);
+    this.translate.use(langSelected);
+  }
 
   ngOnInit() {
   }
