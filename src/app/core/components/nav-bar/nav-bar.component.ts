@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { TweetService } from '../../services/tweet.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -18,15 +17,14 @@ export class NavBarComponent implements OnInit {
     return this.authService.getLoggedUsername();
   }
 
-  setloggedUserId(): void {
-    this.tweetService.setCurrentId(this.authService.getLoggedUserId());
+  get loggedUserId(): string {
+    return this.authService.getLoggedUserId();
   }
 
   constructor(
     private router: Router,
-    private authService: AuthService,
-    private tweetService: TweetService
-    ) { }
+    private authService: AuthService
+  ) { }
 
   logout() {
     this.authService.logout();

@@ -5,9 +5,18 @@ import { throwError, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { environment } from '../../../environments/environment';
-import { AppError, BadCredentialsError, BadPasswordError, EmailExistsError, UsernameExistsError } from '../../shared/common';
+import {
+  AppError,
+  BadCredentialsError,
+  BadPasswordError,
+  EmailExistsError,
+  UsernameExistsError,
+  BadEmailError,
+  BadIdError,
+  NoMemberError
+} from '../../shared/common';
 import { ErrorTypes } from '../../shared/models/error-types';
-import { UserDetails, UserToken } from '../../shared/models/user';
+import { UserDetails, UserToken, User } from '../../shared/models/user';
 
 @Injectable()
 export class AuthService {
@@ -81,12 +90,23 @@ export class AuthService {
       );
   }
 
+  getMember(userId: string): Observable<User> {
+    return this.http.get<User>(`${environment.baseUrl}/members/${userId}`)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
   private handleError(error: HttpErrorResponse): Observable<never> {
     if (error.status === 400) {
       if (error.error === ErrorTypes.invalidCred) {
         return throwError(new BadCredentialsError(error.status, error.error));
-      } else {
+      } else if (error.error === ErrorTypes.badPasswordFormat) {
         return throwError(new BadPasswordError(error.status, error.error));
+      } else if (error.error === ErrorTypes.badEmailFormat) {
+        return throwError(new BadEmailError(error.status, error.error));
+      } else {
+        return throwError(new BadIdError(error.status, error.error));
       }
     }
     if (error.status === 409) {
@@ -95,6 +115,9 @@ export class AuthService {
       } else {
         return throwError(new UsernameExistsError(error.status, error.error));
       }
+    }
+    if (error.status === 404) {
+      return throwError(new NoMemberError(error.status, error.error));
     }
     return throwError(new AppError(error.status, error.statusText));
   }

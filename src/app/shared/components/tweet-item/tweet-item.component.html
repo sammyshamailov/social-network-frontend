@@ -1,13 +1,13 @@
 <div fxLayout="column" fxLayoutAlign="space-between center">
-    <mat-card class="example-card">
+    <mat-card *ngIf="tweet" class="example-card">
         <mat-card-header>
             <div (click)="goToProfilePage()" mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>{{ tweet.name }}</mat-card-title>
-            <mat-card-subtitle>{{ tweet.date }}</mat-card-subtitle>
+            <mat-card-title>{{ tweet.username }}</mat-card-title>
+            <mat-card-subtitle>{{ tweet.postDate }}</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
             <p>
-                {{ tweet.content }}
+                {{ tweet.text }}
             </p>
         </mat-card-content>
         <mat-card-actions fxLayout="row" fxLayoutAlign="end">

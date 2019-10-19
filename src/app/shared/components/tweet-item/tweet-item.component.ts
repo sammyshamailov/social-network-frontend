@@ -16,7 +16,7 @@ export class TweetItemComponent implements OnInit {
   constructor(private router: Router) { }
 
   goToProfilePage() {
-    this.router.navigate(['/profile']);
+    this.router.navigate(['profile', this.tweet.userId, this.tweet.username]);
   }
 
   deleteTweet(tweetId: string) {

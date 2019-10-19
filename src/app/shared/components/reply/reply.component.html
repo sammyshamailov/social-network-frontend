@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Reply</h1>
+<div mat-dialog-content>
+    <mat-form-field>
+        <input matInput name="text" #tweetText>
+    </mat-form-field>
+    <mat-hint align="end"> {{ tweetText.value?.length }} / 240 </mat-hint>
+</div>
+<div mat-dialog-actions align="center">
+    <button mat-button mat-dialog-close="{{ tweetText.value }}"
+        [disabled]="tweetText.value?.length > 240 || tweetText.value?.length === 0">Post</button>
+    <button mat-button mat-dialog-close="no">Cancel</button>
+</div>

@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -12,7 +12,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [],
@@ -30,7 +30,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatTooltipModule,
     MatCardModule,
     MatSnackBarModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatDialogModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -45,7 +46,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatTooltipModule,
     MatCardModule,
     MatSnackBarModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatDialogModule
   ]
 })
 export class AppMaterialModule { }

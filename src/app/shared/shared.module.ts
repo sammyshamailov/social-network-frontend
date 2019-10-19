@@ -9,12 +9,20 @@ import { TranslateModule } from '@ngx-translate/core';
 import { TweetItemComponent } from './components/tweet-item/tweet-item.component';
 import { TweetActionsComponent } from './components/tweet-actions/tweet-actions.component';
 import { AppMaterialModule } from '../app-material/app-material.module';
+import { DeleteConfirmComponent } from './components/delete-confirm/delete-confirm.component';
+import { ReplyComponent } from './components/reply/reply.component';
 
 @NgModule({
   declarations: [
     TweetsComponent,
     TweetItemComponent,
-    TweetActionsComponent
+    TweetActionsComponent,
+    DeleteConfirmComponent,
+    ReplyComponent
+  ],
+  entryComponents: [
+    ReplyComponent,
+    DeleteConfirmComponent
   ],
   imports: [
     CommonModule,

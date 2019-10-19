@@ -4,7 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../../../core/services/auth.service';
-import { AppError, BadPasswordError, EmailExistsError, UsernameExistsError } from '../../../shared/common';
+import { AppError, BadPasswordError, EmailExistsError, UsernameExistsError, BadEmailError } from '../../../shared/common';
 
 @Component({
   selector: 'app-signup-page',
@@ -29,11 +29,12 @@ export class SignupPageComponent implements OnInit {
       (userDetails) => {
         this.authService.setToken(userDetails.token);
         this.router.navigate(['/home']);
+        this.openSnackBar('Registration Succeded');
       },
       (error: AppError) => {
         if (error instanceof UsernameExistsError) {
           form.controls.username.setValue('');
-        } else if (error instanceof EmailExistsError) {
+        } else if (error instanceof EmailExistsError || error instanceof BadEmailError) {
           form.controls.email.setValue('');
         } else if (error instanceof BadPasswordError) {
           form.controls.password.setValue('');
@@ -41,6 +42,12 @@ export class SignupPageComponent implements OnInit {
         error.openSnackBar(this.snackBar);
       }
     );
+  }
+
+  private openSnackBar(successMsg: string) {
+    this.snackBar.open(successMsg, 'Close', {
+      duration: 2000,
+    });
   }
 
   ngOnInit() {

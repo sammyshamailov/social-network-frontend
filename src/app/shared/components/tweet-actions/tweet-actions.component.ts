@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { AuthService } from '../../../core/services/auth.service';
 import { Tweet } from '../../models/tweet';
@@ -10,6 +10,7 @@ import { Tweet } from '../../models/tweet';
 })
 export class TweetActionsComponent implements OnInit {
   @Input() tweet: Tweet;
+  starOption = '';
 
   @Output() deleteTweetId = new EventEmitter<string>();
   @Output() starTweetId = new EventEmitter<string>();
@@ -34,9 +35,11 @@ export class TweetActionsComponent implements OnInit {
 
   starTweet() {
     this.starTweetId.emit(this.tweet._id);
+    this.starOption = this.tweet.starredByMe ? 'star_border' : 'star';
   }
 
   ngOnInit() {
+    this.starOption = this.tweet.starredByMe ? 'star' : 'star_border';
   }
 
 }

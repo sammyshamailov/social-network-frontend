@@ -1,6 +1,6 @@
 export enum ErrorTypes {
     notTheOwner = 'Not the owner',
-    tweetNotFound = 'Tweet not found',
+    tweetNotFound = 'Tweet not found or has been deleted already',
     unauthorized = 'Unauthorized',
     badIdFormat = 'Bad id format',
     noMember = 'Member not found',

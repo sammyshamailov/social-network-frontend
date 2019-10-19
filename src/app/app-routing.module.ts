@@ -6,7 +6,7 @@ import { ProfilePageComponent } from './components/profile-page/profile-page.com
 
 const routes: Routes = [
   {
-    path: 'profile/:username',
+    path: 'profile/:id/:username',
     component: ProfilePageComponent
   },
   {

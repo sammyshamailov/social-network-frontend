@@ -5,5 +5,5 @@
     <mat-icon>reply</mat-icon>
 </button>
 <button [disabled]='!isAuthenticated' class="star-action" (click)="starTweet()" mat-icon-button>
-    <mat-icon matBadge='{{ tweet.stars }}' matBadgeColor="warn" #stars>star_border</mat-icon>
+    <mat-icon matBadge='{{ tweet.stars }}' matBadgeColor="warn" >{{ starOption }}</mat-icon>
 </button>

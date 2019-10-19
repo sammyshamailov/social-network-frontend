@@ -24,6 +24,7 @@ export class SigninPageComponent implements OnInit {
       (userDetails) => {
         this.authService.setToken(userDetails.token);
         this.router.navigate(['/home']);
+        this.openSnackBar('Login Successful');
       },
       (error: AppError) => {
         if (error instanceof BadCredentialsError) {
@@ -33,6 +34,12 @@ export class SigninPageComponent implements OnInit {
         error.openSnackBar(this.snackBar);
       }
     );
+  }
+
+  private openSnackBar(successMsg: string) {
+    this.snackBar.open(successMsg, 'Close', {
+      duration: 2000,
+    });
   }
 
   ngOnInit() {
