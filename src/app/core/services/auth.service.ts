@@ -77,14 +77,13 @@ export class AuthService {
     return this.http.post<UserDetails>(`${environment.baseUrl}/auth/login`, { email: userEmail, password: userPassword })
       .pipe(
         catchError(this.handleError),
-        // finalize(() => console.log('Sequence complete'))
       );
   }
 
-  register(userEmail: string, userName: string, userPassword: string): Observable<UserDetails> {
+  register(userFile, userFileName, userEmail, userName, userPassword): Observable<UserDetails> {
     return this.http.post<UserDetails>(
       `${environment.baseUrl}/auth/register`,
-      { email: userEmail, username: userName, password: userPassword })
+      { file: { content: userFile, name: userFileName }, email: userEmail, username: userName, password: userPassword })
       .pipe(
         catchError(this.handleError)
       );

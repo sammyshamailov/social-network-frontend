@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, timer, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { catchError, tap, flatMap } from 'rxjs/operators';
+import { catchError, tap, flatMap, share } from 'rxjs/operators';
 import { Tweet, TweetStars } from '../../shared/models/tweet';
 import { environment } from '../../../environments/environment';
 import { ErrorTypes } from '../../shared/models/error-types';
@@ -21,6 +21,8 @@ export class TweetService {
   private _newTweet: BehaviorSubject<Tweet> = new BehaviorSubject<Tweet>(null);
   public readonly newTweet: Observable<Tweet> = this._newTweet.asObservable();
 
+  public currentProfileId = '';
+
   constructor(private http: HttpClient) { }
 
   getAllTweets() {
@@ -37,6 +39,7 @@ export class TweetService {
   getMemberTweets(memberId: string) {
     return timer(0, 10000)
       .pipe(
+        share(),
         flatMap(() => {
           return this.http.get<Tweet[]>(`${environment.baseUrl}/members/${memberId}/tweets`)
             .pipe(

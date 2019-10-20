@@ -31,10 +31,6 @@ export class TweetsComponent implements OnInit, OnDestroy {
     private router: Router
   ) { }
 
-  trackByEmpCode(index: number, tweet: Tweet): string {
-    return tweet._id;
-  }
-
   deleteTweet(tweetId: string): void {
     this.dialog.open(DeleteConfirmComponent).afterClosed().subscribe(userChoice => {
       if (userChoice === 'yes') {
@@ -80,17 +76,12 @@ export class TweetsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    if (this.router.url.includes('home')) {
-      this.tweetsSubscription = this.tweetService.getAllTweets()
-        .subscribe(
-          (tweets) => {
-            this.tweets = tweets;
-          });
-    } else {
+    if (this.router.url.includes('profile')) {
       this.idSubscription = this.route.paramMap.subscribe(params => {
         this.profileId = params.get('id');
       });
     }
+
     this.newTweetSubscription = this.tweetService.newTweet.subscribe(
       newTweet => {
         if (newTweet && (this.router.url.includes('home') || newTweet.userId === this.profileId)) {
@@ -101,7 +92,6 @@ export class TweetsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     if (this.idSubscription) { this.idSubscription.unsubscribe(); }
-    if (this.tweetsSubscription) { this.tweetsSubscription.unsubscribe(); }
     this.newTweetSubscription.unsubscribe();
   }
 

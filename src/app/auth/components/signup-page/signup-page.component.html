@@ -2,34 +2,33 @@
     <h1>{{ ('Headers.Register' | translate) }}</h1>
 </header>
 <section>
-    <form fxLayout="column wrap" fxLayoutAlign="center center" #registerForm="ngForm"
-        (ngSubmit)="onSubmit(registerForm)">
+    <form fxLayout="column wrap" fxLayoutAlign="center center" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <mat-form-field>
-            <input type="email" matInput placeholder="{{ ('Form.Email' | translate) }}" ngModel name="email"
-                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required #emailInput="ngModel">
-            <mat-error *ngIf="emailInput.hasError('required')">{{ ('Form.EmailRequiredError' | translate) }}
+            <input type="email" matInput formControlName="email" placeholder="{{ ('Form.Email' | translate) }}"
+                name="email">
+            <mat-error *ngIf="emailForm.invalid && emailForm.errors.required">{{ ('Form.EmailRequiredError' | translate) }}
             </mat-error>
-            <mat-error *ngIf="emailInput.hasError('pattern')">{{ ('Form.EmailPatternError' | translate) }}</mat-error>
+            <mat-error *ngIf="emailForm.invalid && emailForm.errors.pattern">{{ ('Form.EmailPatternError' | translate) }}
+            </mat-error>
         </mat-form-field>
         <mat-form-field>
-            <input type="text" matInput placeholder="{{ ('Form.Username' | translate) }}" ngModel name="username"
-                required minlength="5" #unInput="ngModel" matTooltip="{{ ('Form.UsernameHint' | translate) }}"
-                matTooltipPosition="below">
-            <mat-hint align="end"> {{ unInput.value?.length }} / 5</mat-hint>
+            <input type="text" matInput formControlName="username" placeholder="{{ ('Form.Username' | translate) }}" name="username"
+                matTooltip="{{ ('Form.UsernameHint' | translate) }}" matTooltipPosition="below">
+            <mat-hint align="end"> {{ usernameForm.value?.length }} / 4</mat-hint>
         </mat-form-field>
         <mat-form-field>
-            <input type="password" matInput placeholder="{{ ('Form.Password' | translate) }}" ngModel name="password"
-                required minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" #pwInput="ngModel"
+            <input type="password" matInput formControlName="password" placeholder="{{ ('Form.Password' | translate) }}" name="password"
                 matTooltip="{{ ('Form.PasswordHint' | translate) }}" matTooltipPosition="below">
-            <mat-hint align="end"> {{ pwInput.value?.length }} / 8</mat-hint>
-            <mat-error *ngIf="pwInput.hasError('required')">{{ ('Form.PasswordRequiredError' | translate) }}
+            <mat-hint align="end"> {{ passwordForm.value?.length }} / 8</mat-hint>
+            <mat-error *ngIf="passwordForm.invalid && passwordForm.errors.required">{{ ('Form.PasswordRequiredError' | translate) }}
             </mat-error>
-            <mat-error *ngIf="pwInput.hasError('pattern')">{{ ('Form.PasswordPatternError' | translate) }}</mat-error>
+            <mat-error *ngIf="passwordForm.invalid && passwordForm.errors.pattern">{{ ('Form.PasswordPatternError' | translate) }}</mat-error>
         </mat-form-field>
         <button color="primary" type="button" mat-raised-button
             (click)="fileInput.click()">{{ ('Form.ProfilePhoto' | translate) }}</button>
         <input hidden mdInput accept="image/*" (change)="onFileSelected($event.srcElement.files[0])" name="imageFile"
             #fileInput type="file">
-        <button color="primary" type="submit" [disabled]="registerForm.invalid" mat-raised-button>{{ 'Form.Register' | translate}}</button>
+        <button color="primary" type="submit" [disabled]="registerForm.invalid"
+            mat-raised-button>{{ 'Form.Register' | translate}}</button>
     </form>
 </section>

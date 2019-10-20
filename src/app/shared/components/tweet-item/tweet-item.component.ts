@@ -15,6 +15,14 @@ export class TweetItemComponent implements OnInit {
 
   constructor(private router: Router) { }
 
+  getUserAvatar(tweet: Tweet) {
+    const userAvatar = {
+      'background-image': `url(${tweet.avatarUrl})`,
+      'background-size': 'cover'
+    };
+    return userAvatar;
+  }
+
   goToProfilePage() {
     this.router.navigate(['profile', this.tweet.userId, this.tweet.username]);
   }
