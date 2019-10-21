@@ -1,4 +1,4 @@
-<div class="example-container">
+<div class="main-container">
     <mat-toolbar color="primary" fxLayout="row wrap" fxLayoutAlign="space-between center">
         <div fxShow="true" fxHide.gt-sm="true">
             <a mat-icon-button (click)="sidenav.toggle()">
@@ -8,21 +8,21 @@
         <div fxLayout="row wrap" fxFlex="80" fxShow="true" fxHide.lt-md="true">
             <a mat-button routerLink='/home' routerLinkActive='active-route-class'
                 [routerLinkActiveOptions]='{exact: true}'> {{ 'Menu.Home' | translate }} </a>
-            <div *ngIf='!isAuthenticated'>
+            <div *ngIf="!isAuthenticated">
                 |<a mat-button routerLink='/login' routerLinkActive='active-route-class'
                     [routerLinkActiveOptions]='{exact: true}'> {{ 'Menu.Login' | translate }} </a>
             </div>
-            <div *ngIf='!isAuthenticated'>
+            <div *ngIf="!isAuthenticated">
                 |<a mat-button routerLink='/register' routerLinkActive='active-route-class'
                     [routerLinkActiveOptions]='{exact: true}'> {{ 'Menu.Register' | translate }} </a>
             </div>
-            <div *ngIf='isAuthenticated'>
-                |<a mat-button (click)="navigate()" [routerLink]="['/profile', loggedUserId, loggedUsername]"
+            <div *ngIf="isAuthenticated">
+                |<a mat-button [routerLink]="['/profile', loggedUserId, loggedUsername]"
                     routerLinkActive='active-route-class' [routerLinkActiveOptions]='{exact: true}'>
                     {{ 'Menu.Profile' | translate }} </a>
             </div>
-            <div *ngIf='isAuthenticated'>
-                |<a mat-button (click)='logout()'> {{ 'Menu.Logout' | translate }} </a>
+            <div *ngIf="isAuthenticated">
+                |<a mat-button (click)="logout()"> {{ 'Menu.Logout' | translate }} </a>
             </div>
         </div>
         <app-lang-choice></app-lang-choice>
@@ -43,7 +43,7 @@
                     [routerLink]="['/profile', loggedUserId, loggedUsername]"
                     routerLinkActive='active-route-class' [routerLinkActiveOptions]='{exact: true}'>
                     {{ 'Menu.Profile' | translate }} </a>
-                <a *ngIf='isAuthenticated' (click)="sidenav.toggle()" mat-button (click)='logout()'>
+                <a *ngIf='isAuthenticated' (click)="sidenav.toggle()" mat-button (click)="logout()">
                     {{ 'Menu.Logout' | translate }} </a>
             </div>
         </mat-sidenav>

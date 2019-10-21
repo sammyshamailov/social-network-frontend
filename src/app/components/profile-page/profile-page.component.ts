@@ -1,12 +1,13 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService } from '../../core/services/auth.service';
-import { User } from '../../shared/models/user';
-import { AppError } from 'src/app/shared/common';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Tweet } from 'src/app/shared/models/tweet';
-import { TweetService } from 'src/app/core/services/tweet.service';
+
+import { AuthService } from '../../core/services/auth.service';
+import { TweetService } from '../../core/services/tweet.service';
+import { AppError } from '../../shared/common';
+import { Tweet } from '../../shared/models/tweet';
+import { User } from '../../shared/models/user';
 
 @Component({
   selector: 'app-profile-page',
@@ -15,8 +16,10 @@ import { TweetService } from 'src/app/core/services/tweet.service';
 })
 export class ProfilePageComponent implements OnInit, OnDestroy {
   userDetails: User;
+
   idSubscription: Subscription;
   profileId: string;
+
   tweetsSubscription: Subscription;
   tweets: Tweet[] = [];
 
@@ -28,6 +31,11 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     private snackBar: MatSnackBar
   ) { }
 
+  /**
+   * Returns the user avatar for ngStyle in mat-card-avatar.
+   * @param user The selected user for profile.
+   * @returns Background image properties.
+   */
   getUserAvatar(user: User) {
     const userAvatar = {
       'background-image': `url(${user.avatarUrl})`,
@@ -39,12 +47,14 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.idSubscription = this.route.paramMap.subscribe(params => {
       this.profileId = params.get('id');
+      // set the current profile id for control.
       this.tweetService.currentProfileId = this.profileId;
       this.authService.getMember(this.profileId).subscribe(
         user => {
           this.userDetails = user;
         },
         (error: AppError) => {
+          // in case of wrong id or wrong username.
           this.router.navigate(['home']);
           error.openSnackBar(this.snackBar);
         }
@@ -52,7 +62,6 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
       this.tweetsSubscription = this.tweetService.getMemberTweets(this.profileId)
         .subscribe(
           (tweets) => {
-            console.log(tweets);
             if (params.get('id') === this.tweetService.currentProfileId) { this.tweets = tweets; }
           },
           (error: AppError) => {

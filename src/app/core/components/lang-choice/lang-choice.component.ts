@@ -13,10 +13,19 @@ export class LangChoiceComponent implements OnInit {
     translate.use(localStorage.getItem('lang') ? localStorage.getItem('lang') : 'en');
   }
 
+  /**
+   * Gets all available languages.
+   * @returns all available languages.
+   */
   getLangs(): string[] {
     return this.translate.getLangs();
   }
 
+  /**
+   * Changes language according to user choice
+   * and sets the choice to localStorage.
+   * @param langSelected the selected language.
+   */
   changeLang(langSelected: string): void {
     localStorage.setItem('lang', langSelected);
     this.translate.use(langSelected);

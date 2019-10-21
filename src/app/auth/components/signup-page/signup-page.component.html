@@ -6,23 +6,31 @@
         <mat-form-field>
             <input type="email" matInput formControlName="email" placeholder="{{ ('Form.Email' | translate) }}"
                 name="email">
-            <mat-error *ngIf="emailForm.invalid && emailForm.errors.required">{{ ('Form.EmailRequiredError' | translate) }}
+            <mat-error *ngIf="emailForm.invalid && emailForm.errors.required">
+                {{ ('Form.EmailRequiredError' | translate) }}
             </mat-error>
-            <mat-error *ngIf="emailForm.invalid && emailForm.errors.pattern">{{ ('Form.EmailPatternError' | translate) }}
+            <mat-error *ngIf="emailForm.invalid && emailForm.errors.pattern">
+                {{ ('Form.EmailPatternError' | translate) }}
             </mat-error>
         </mat-form-field>
         <mat-form-field>
-            <input type="text" matInput formControlName="username" placeholder="{{ ('Form.Username' | translate) }}" name="username"
-                matTooltip="{{ ('Form.UsernameHint' | translate) }}" matTooltipPosition="below">
+            <input type="text" matInput formControlName="username" placeholder="{{ ('Form.Username' | translate) }}"
+                name="username" matTooltip="{{ ('Form.UsernameHint' | translate) }}" matTooltipPosition="below">
             <mat-hint align="end"> {{ usernameForm.value?.length }} / 4</mat-hint>
         </mat-form-field>
         <mat-form-field>
-            <input type="password" matInput formControlName="password" placeholder="{{ ('Form.Password' | translate) }}" name="password"
-                matTooltip="{{ ('Form.PasswordHint' | translate) }}" matTooltipPosition="below">
+            <input type="password" matInput formControlName="password" placeholder="{{ ('Form.Password' | translate) }}"
+                name="password" matTooltip="{{ ('Form.PasswordHint' | translate) }}" matTooltipPosition="below">
             <mat-hint align="end"> {{ passwordForm.value?.length }} / 8</mat-hint>
-            <mat-error *ngIf="passwordForm.invalid && passwordForm.errors.required">{{ ('Form.PasswordRequiredError' | translate) }}
+            <mat-error *ngIf="passwordForm.invalid && passwordForm.errors.required">
+                {{ ('Form.PasswordRequiredError' | translate) }}
             </mat-error>
-            <mat-error *ngIf="passwordForm.invalid && passwordForm.errors.pattern">{{ ('Form.PasswordPatternError' | translate) }}</mat-error>
+            <mat-error *ngIf="passwordForm.invalid && passwordForm.errors.pattern">
+                {{ ('Form.PasswordPatternError' | translate) }}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input type="text" matInput formControlName="avatarName" placeholder="{{ ('Form.FileInput' | translate) }}"
+                name="avatarName" readonly [value]="avatarNameForm.value">
         </mat-form-field>
         <button color="primary" type="button" mat-raised-button
             (click)="fileInput.click()">{{ ('Form.ProfilePhoto' | translate) }}</button>

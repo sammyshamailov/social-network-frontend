@@ -1,9 +1,9 @@
-<button *ngIf='isAuthenticated && isLoggedUser' color="warn" (click)="deleteTweet()" mat-icon-button>
+<button *ngIf="isAuthenticated && isLoggedUser" color="warn" (click)="deleteTweet()" mat-icon-button>
     <mat-icon>delete</mat-icon>
 </button>
-<button *ngIf='isAuthenticated' color="primary" (click)="replyTweet()" mat-icon-button>
+<button *ngIf="isAuthenticated" color="primary" (click)="replyTweet()" mat-icon-button>
     <mat-icon>reply</mat-icon>
 </button>
-<button [disabled]='!isAuthenticated' class="star-action" (click)="starTweet()" mat-icon-button>
-    <mat-icon matBadge='{{ tweet.stars }}' matBadgeColor="warn" >{{ starOption }}</mat-icon>
+<button [disabled]="!isAuthenticated" class="star-action" (click)="starTweet()" mat-icon-button>
+    <mat-icon matBadge="{{ tweet.stars }}" matBadgeColor="warn" >{{ starOption }}</mat-icon>
 </button>

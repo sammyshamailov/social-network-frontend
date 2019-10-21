@@ -16,21 +16,3 @@ span{
     width: fit-content;
     margin: auto;
 }
-
-.ultimate-question{
-    width: fit-content;
-    margin: auto;
-    font-size: x-large;
-}
-
-.forty-two-image{
-    display: flex;
-    justify-content: center;
-    flex: 0 0 50px;
-    margin: auto;
-    width: 50px;
-}
-
-.forty-two-image:hover{
-    cursor: pointer;
-}

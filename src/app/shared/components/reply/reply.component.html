@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Reply</h1>
+<h1 mat-dialog-title>{{ 'Headers.Reply' | translate }}</h1>
 <div mat-dialog-content>
     <mat-form-field>
         <input matInput name="text" #tweetText>
@@ -7,6 +7,6 @@
 </div>
 <div mat-dialog-actions align="center">
     <button mat-button mat-dialog-close="{{ tweetText.value }}"
-        [disabled]="tweetText.value?.length > 240 || tweetText.value?.length === 0">Post</button>
-    <button mat-button mat-dialog-close="no">Cancel</button>
+        [disabled]="tweetText.value?.length > 240 || tweetText.value?.length === 0">{{ 'Form.Post' | translate }}</button>
+    <button mat-button mat-dialog-close="no">{{ 'Form.Cancel' | translate }}</button>
 </div>

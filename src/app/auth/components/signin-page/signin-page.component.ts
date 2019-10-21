@@ -19,7 +19,12 @@ export class SigninPageComponent implements OnInit {
     private snackBar: MatSnackBar
   ) { }
 
-  onSubmit(form: NgForm) {
+  /**
+   * Sends the login details to authService and resets form
+   *  if credentials are wrong, else sets token and navigates to home.
+   * @param form Form data.
+   */
+  onSubmit(form: NgForm): void {
     this.authService.login(form.value.email, form.value.password).subscribe(
       (userDetails) => {
         this.authService.setToken(userDetails.token);
@@ -36,7 +41,11 @@ export class SigninPageComponent implements OnInit {
     );
   }
 
-  private openSnackBar(successMsg: string) {
+  /**
+   * Opens snack bar with success message.
+   * @param successMsg string representation of massage.
+   */
+  private openSnackBar(successMsg: string): void {
     this.snackBar.open(successMsg, 'Close', {
       duration: 2000,
     });

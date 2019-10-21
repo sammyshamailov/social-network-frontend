@@ -19,10 +19,18 @@
         "PasswordPatternError": "Min 8 chars long including 1 capital letter & 1 number.",
         "Register": "Register",
         "Login": "Login",
-        "Post": "Post"
+        "Post": "Post",
+        "FileInput": "Picture name will be shown here.",
+        "Cancel": "Cancel"
     },
     "Headers": {
         "Register": "Register to Twitter Clone",
-        "Login": "Login"
+        "Login": "Login",
+        "Reply": "Reply"
+    },
+    "Delete": {
+        "Confirmation": "Are You Sure?",
+        "Yes": "Yes",
+        "No": "No"
     }
 }

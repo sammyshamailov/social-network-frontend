@@ -1,8 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { AuthService } from '../../../core/services/auth.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { TweetService } from 'src/app/core/services/tweet.service';
-import { Tweet } from 'src/app/shared/models/tweet';
+
+import { AuthService } from '../../../core/services/auth.service';
+import { TweetService } from '../../../core/services/tweet.service';
+import { Tweet } from '../../../shared/models/tweet';
 
 @Component({
   selector: 'app-home-page',
@@ -13,6 +14,10 @@ export class HomePageComponent implements OnInit, OnDestroy {
   tweetsSubscription: Subscription;
   tweets: Tweet[] = [];
 
+  /**
+   * Returnes whether user is authenticated.
+   * Function for html control.
+   */
   get isAuthenticated(): boolean {
     return this.authService.isAuthenticated();
   }

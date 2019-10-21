@@ -1,7 +1,7 @@
 <div fxLayout="column" fxLayoutAlign="space-between center">
     <mat-card *ngIf="userDetails" class="card">
         <mat-card-header>
-            <div mat-card-avatar [ngStyle]='getUserAvatar(userDetails)' class="header-image"></div>
+            <div mat-card-avatar [ngStyle]="getUserAvatar(userDetails)" class="header-image"></div>
             <mat-card-title>{{ userDetails.username }}</mat-card-title>
             <mat-card-subtitle>{{ userDetails.registrationDate }}</mat-card-subtitle>
             <mat-card-subtitle>{{ userDetails.lastLoginDate }}</mat-card-subtitle>

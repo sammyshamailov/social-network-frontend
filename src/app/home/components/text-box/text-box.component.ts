@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 import { TweetService } from '../../../core/services/tweet.service';
 import { AppError } from '../../../shared/common';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-text-box',
@@ -16,6 +17,10 @@ export class TextBoxComponent implements OnInit {
     private snackBar: MatSnackBar
     ) { }
 
+  /**
+   * Calls post tweet in authService and resets the text box
+   * content when successful.
+   */
   postTweet(): void {
     this.tweetService.postTweet(this.tweetContent).subscribe(
       tweet => {

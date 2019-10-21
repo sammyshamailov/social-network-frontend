@@ -19,10 +19,18 @@
         "PasswordPatternError": "Mínimo 8 caracteres de largo incluyendo 1 letra mayúscula y 1 número.",
         "Register": "Regístrate",
         "Login": "Iniciar Sesión",
-        "Post": "Enviar"
+        "Post": "Enviar",
+        "FileInput": "El nombre de la imagen se mostrará aquí.",
+        "Cancel": "Cancelar"
     },
     "Headers": {
         "Register": "Registrarse en el clon de Twitter",
-        "Login": "Iniciar Sesión"
+        "Login": "Iniciar Sesión",
+        "Reply": "Respuesta"
+    },
+    "Delete": {
+        "Confirmation": "Estás seguro?",
+        "Yes": "Si",
+        "No": "No"
     }
 }
